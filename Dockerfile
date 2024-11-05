@@ -1,0 +1,1 @@
+FROM dolibarr/dolibarr:latest
