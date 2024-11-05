@@ -9,7 +9,7 @@
 ## Séance n° 1
 
 * 05/11/2024 De 8h30 à 11h30
-* configuration de l'organisation, configuration et découvertes des module, installation sgbd (mysql), installation dolibarr (pacquet deb), configuration dolibarr guidée (création utilisateur et database)
+* Configuration de l'organisation, configuration et découvertes des module, installation sgbd (mysql), installation dolibarr (pacquet deb), configuration dolibarr guidée (création utilisateur et database)
 * Pour la prochaine séance : Découverte des modules, prise en main du module client, importation d'une liste de client
 * Difficultés pour se connecter a la base SQL et pour connecter la BDD à Dolibarr (Connecter le user Dolibarr a la base)
 
