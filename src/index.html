@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Web d'Exemple</title>
+    <link rel="stylesheet" href="style.css"> <!-- Lien vers une feuille de style externe -->
+</head>
+<body>
+    <!-- En-tête du site -->
+    <header>
+        <h1>Bienvenue sur notre Site Web d'Exemple</h1>
+        <nav>
+            <ul>
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Section principale -->
+    <main>
+        <!-- Section d'accueil -->
+        <section id="accueil">
+            <h2>Accueil</h2>
+            <p>Bienvenue sur notre site web d'exemple. Nous proposons divers services pour répondre à vos besoins.</p>
+            <img src="example-image.jpg" alt="Image d'exemple" style="max-width: 100%; height: auto;">
+        </section>
+
+        <!-- Section des services -->
+        <section id="services">
+            <h2>Nos Services</h2>
+            <p>Voici les services que nous proposons :</p>
+            <ul>
+                <li>Service 1 : Description du service 1.</li>
+                <li>Service 2 : Description du service 2.</li>
+                <li>Service 3 : Description du service 3.</li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- Formulaire de contact -->
+    <section id="contact">
+        <h2>Contactez-nous</h2>
+        <form action="#" method="post">
+            <label for="name">Nom :</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message :</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button type="submit">Envoyer</button>
+        </form>
+    </section>
+
+    <!-- Pied de page -->
+    <footer>
+        <p>&copy; 2024 Site Web d'Exemple. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>
