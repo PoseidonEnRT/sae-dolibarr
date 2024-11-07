@@ -26,6 +26,23 @@
 ## Séance n° 3
 
 * date - heure
+* recherche documentation dockerfile pour httpd mysql, création dockerfile httpd "test" pour prendre en main l'image httpd, création dockerfile mysql, création bdd et user
+* liée bdd mysql avec dockerfile dolibarr, installation dolibarr sur le dockerfile
+* peu de documentation pour des dockerfile sur dolibarr (beaucoup de docker-compose), site docs.docker.com down pendant environ 1h (erreur 503)
+* beaucoup de reflexion sur comment utiliser les dockerfile. Comment les lier, partir sur quelle image (2 debian ou mysql et apache), ou bien si il fallait partir sur un docker-compose à la place
+
+
+## Séance n° 3
+
+* date - heure
+* Travail effectué
+* A faire à la prochaine séance
+* Difficultés rencontrées
+* Remarques sur la séances (membre absent, pbe technique, ...)
+
+## Séance n° 3
+
+* date - heure
 * Travail effectué
 * A faire à la prochaine séance
 * Difficultés rencontrées
