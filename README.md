@@ -25,7 +25,7 @@
 
 ## Séance n° 3
 
-* date - heure
+* 06/11/2024 de 8h30 à 11h30
 * recherche documentation dockerfile pour httpd mysql, création dockerfile httpd "test" pour prendre en main l'image httpd, création dockerfile mysql, création bdd et user
 * liée bdd mysql avec dockerfile dolibarr, installation dolibarr sur le dockerfile
 * peu de documentation pour des dockerfile sur dolibarr (beaucoup de docker-compose), site docs.docker.com down pendant environ 1h (erreur 503)
@@ -34,7 +34,7 @@
 
 ## Séance n° 3
 
-* 06/11/2024 de 8h30 à 11h30
+* date - heure
 * Travail effectué
 * A faire à la prochaine séance
 * Difficultés rencontrées
