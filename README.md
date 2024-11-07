@@ -34,7 +34,7 @@
 
 ## Séance n° 3
 
-* date - heure
+* 06/11/2024 de 8h30 à 11h30
 * Travail effectué
 * A faire à la prochaine séance
 * Difficultés rencontrées
