@@ -35,12 +35,36 @@
 ## Séance n° 4
 
 * 07/11/2024 de 8h30 à 11h30
+* début listage commande nécessaire pour install.sh, test lancement dockerfile mysql, recherche pour débuger les problèmes sur le dockerfile mysql
+* commencer l'ajout de dolibarr sur le dockerfile apache, essayer de régler le problème sur le dockerfile mysql
+* ERROR 2002 (HY000) pendant les commandes mysql quand on lance le Dockerfile du SGBD, essaie de résolution du bug avec infos sur internet pour l'instant infructueux
+* Remarques sur la séances (membre absent, pbe technique, ...)
+
+## Séance n° 5
+
+* date - heure
 * Travail effectué
 * A faire à la prochaine séance
 * Difficultés rencontrées
 * Remarques sur la séances (membre absent, pbe technique, ...)
 
-## Séance n° 3
+## Séance n° 6
+
+* date - heure
+* Travail effectué
+* A faire à la prochaine séance
+* Difficultés rencontrées
+* Remarques sur la séances (membre absent, pbe technique, ...)
+
+## Séance n° 7
+
+* date - heure
+* Travail effectué
+* A faire à la prochaine séance
+* Difficultés rencontrées
+* Remarques sur la séances (membre absent, pbe technique, ...)
+
+## Séance n° 8
 
 * date - heure
 * Travail effectué
