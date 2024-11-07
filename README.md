@@ -32,9 +32,9 @@
 * beaucoup de reflexion sur comment utiliser les dockerfile. Comment les lier, partir sur quelle image (2 debian ou mysql et apache), ou bien si il fallait partir sur un docker-compose à la place
 
 
-## Séance n° 3
+## Séance n° 4
 
-* date - heure
+* 07/11/2024 de 8h30 à 11h30
 * Travail effectué
 * A faire à la prochaine séance
 * Difficultés rencontrées
