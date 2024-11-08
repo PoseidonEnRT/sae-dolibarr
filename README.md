@@ -38,15 +38,14 @@
 * début listage commande nécessaire pour install.sh, test lancement dockerfile mysql, recherche pour débuger les problèmes sur le dockerfile mysql
 * commencer l'ajout de dolibarr sur le dockerfile apache, essayer de régler le problème sur le dockerfile mysql
 * ERROR 2002 (HY000) pendant les commandes mysql quand on lance le Dockerfile du SGBD, essaie de résolution du bug avec infos sur internet pour l'instant infructueux
-* Remarques sur la séances (membre absent, pbe technique, ...)
 
 ## Séance n° 5
 
-* date - heure
-* Travail effectué
-* A faire à la prochaine séance
-* Difficultés rencontrées
-* Remarques sur la séances (membre absent, pbe technique, ...)
+* 07/11/2024 de 13h à 16h
+* Le problème avec la connexion sur mysql dans le Dockerfile n'est toujours pas réglé malgré les tentatives. On a décidé de partir à la place sur un docker-compose. On a commencé à se renseigner sur la mise en place du docker-compose avec les images mariadb et dolibarr
+* Commencer la mise en place du docker-compose avec des test
+* La documentation et les solutions sur les forums pour le Dockerfile mysql n'ont pas fonctionnés
+* On aurrait dû commencer par utiliser docker-compose, cependant avoir commencé par de simples Dockerfile nous a permis de nous rendre compte des nombreux avantages de docker-compose comparé à un Dockerfile que ce soit au niveau de la mise en place et de l'efficacité.
 
 ## Séance n° 6
 
