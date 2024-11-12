@@ -49,11 +49,10 @@
 
 ## Séance n° 6
 
-* date - heure
-* Travail effectué
-* A faire à la prochaine séance
-* Difficultés rencontrées
-* Remarques sur la séances (membre absent, pbe technique, ...)
+* 12/11/2024 de 14h30 à 17h30
+* recherche documentation docker-compose, création docker compose avec mappage des ports, création utilisateurs mariadb et dolibarr ainsi que la base de donnée, création des volumes dolibarr et mariadb, création de l'entreprise qui "heberge" dolibarr, ajout du .gitignore pour les fichiers créés par install.sh, ajout install.sh qui lance le docker-compose et créer les dossiers nécéssaires, ajout remove.sh qui arrête et supprime les dockers ainsi que supprime les fichiers créés par install.sh
+* Se documenter pour le script d'import csv et créer ce script
+*  après les difficultés passées sur les Dockerfile nous avons décidé de passer sur docker-compose ce qui a été concluant. Nous avons quand même décidé de mettre les Dockerfile dans un dossier old_versions dans un but pédagogique
 
 ## Séance n° 7
 
