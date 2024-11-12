@@ -25,6 +25,7 @@ services:
             DOLI_CRON: 0
             DOLI_INIT_DEMO: 0
             DOLI_COMPANY_NAME: MyBigCompany
+            DOLI_COMPANY_COUNTRYCODE: "FR"
 
         ports:
             - 8082:80
