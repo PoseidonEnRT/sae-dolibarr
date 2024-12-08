@@ -9,7 +9,7 @@ services:
 
         volumes:
             - ./dolibarr_mariadb:/var/lib/mysql
-            - ./csv:/csv
+            - ./csv:/home/csv
 
     web:
         image: dolibarr/dolibarr:latest

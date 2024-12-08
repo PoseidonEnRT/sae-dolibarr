@@ -1,0 +1,11 @@
+rowid,nom,entity,status,address,zip,town,fk_pays,phone,email,tms
+1,Dupont SA,1,1,123 Rue de Rivoli,75001,Paris,1,0142030506,contact@dupontsa.fr,2024-12-31  23:59:59
+2,Martin & Fils,1,1,45 Avenue de la République,69002,Lyon,1,0478901234,info@martinetfils.fr,2024-12-31  23:59:59
+3,Durand Entreprises,1,1,8 Boulevard Saint-Michel,13001,Marseille,1,0491384738,contact@durand-entreprises.fr,2024-12-31  23:59:59
+4,Boulanger SARL,1,1,12 Rue Lafayette,31000,Toulouse,1,0567123456,service@boulanger-sarl.fr,2024-12-31  23:59:59
+5,Leroy Industrie,1,1,27 Rue du Commerce,60000,Nice,1,0498112233,contact@leroyindustrie.fr,2024-12-31  23:59:59
+6,Moreau Commerce,1,1,33 Rue de la Liberté,44000,Nantes,1,0240836721,contact@moreaucommerce.fr,2024-12-31  23:59:59
+7,Simon & Associés,1,1,19 Rue de l'Église,33000,Bordeaux,1,0556332244,info@simonassocies.fr,2024-12-31  23:59:59
+8,Bernard Distribution,1,1,21 Rue Victor Hugo,67000,Strasbourg,1,0388456677,contact@bernarddistribution.fr,2024-12-31  23:59:59
+9,Dubois Transports,1,1,15 Avenue des Champs-Élysées,59000,Lille,1,0320132456,contact@duboistransports.fr,2024-12-31  23:59:59
+10,Garcia BTP,1,1,5 Rue Jean Jaurès,35000,Rennes,1,0223456789,contact@garciabtp.fr,2024-12-31  23:59:59
