@@ -1,71 +1,139 @@
-# Journal de bord
-
-* SAE51 Dolibarr
-* Kylian Laloux
-* Yann Beaudouin
-* 05/11/2024
+# Déploiement de Dolibarr avec Docker
 
 
-## Séance n° 1
+## Introduction
 
-* 05/11/2024 De 8h30 à 11h30
-* Configuration de l'organisation, configuration et découvertes des module, installation sgbd (mysql), installation dolibarr (pacquet deb), configuration dolibarr guidée (création utilisateur et database)
-* Découverte des modules, prise en main du module client, importation d'une liste de client
-* Difficultés pour se connecter a la base SQL et pour connecter la BDD à Dolibarr (Connecter le user Dolibarr a la base)
+Dolibarr est une solution ERP et CRM open-source, qui permet de gérer des opérations commerciales et administratives. Docker, nous permet de simplifier son déploiement.
 
 
-## Séance n° 2
+## Prérequis
 
-* 05/11/2024 de 14h30 à 17h30
-* création d'un simple utilisateur, ajout module ticket, création d'un csv avec les infos clients (champ obligatoire + cerains chains optionnel), import du csv dans la catégorie Tiers, attirubution des clients à un utilisateur
-* Commencer la création d'un dockerfile pour Dolibarr et le SGBD, se renseigner sur la méthode de création possible de ces deux dockerfiles
-* Trouver les catégories nécessaires dans le csv pour importer dans Dolibarr.
+1. **Outils nécessaires :**
+   - Docker installé sur votre machine.
+   - Docker Compose configuré.
 
 
 
-## Séance n° 3
+## Configuration Docker Compose
 
-* 06/11/2024 de 8h30 à 11h30
-* recherche documentation dockerfile pour httpd mysql, création dockerfile httpd "test" pour prendre en main l'image httpd, création dockerfile mysql, création bdd et user
-* liée bdd mysql avec dockerfile dolibarr, installation dolibarr sur le dockerfile
-* peu de documentation pour des dockerfile sur dolibarr (beaucoup de docker-compose), site docs.docker.com down pendant environ 1h (erreur 503)
-* beaucoup de reflexion sur comment utiliser les dockerfile. Comment les lier, partir sur quelle image (2 debian ou mysql et apache), ou bien si il fallait partir sur un docker-compose à la place
+### Fichier `docker-compose.yml`
 
 
-## Séance n° 4
+### Étapes de configuration
 
-* 07/11/2024 de 8h30 à 11h30
-* début listage commande nécessaire pour install.sh, test lancement dockerfile mysql, recherche pour débuger les problèmes sur le dockerfile mysql
-* commencer l'ajout de dolibarr sur le dockerfile apache, essayer de régler le problème sur le dockerfile mysql
-* ERROR 2002 (HY000) pendant les commandes mysql quand on lance le Dockerfile du SGBD, essaie de résolution du bug avec infos sur internet pour l'instant infructueux
+1. **Créer le fichier** : Copiez le contenu de ce dépot dans un dossier nommé `sae-dolibarr`.
+2. **Lancer les conteneurs** : Exécutez la commande suivante :
 
-## Séance n° 5
+   ```bash
+   .\install.sh
+   ```
 
-* 07/11/2024 de 13h à 16h
-* Le problème avec la connexion sur mysql dans le Dockerfile n'est toujours pas réglé malgré les tentatives. On a décidé de partir à la place sur un docker-compose. On a commencé à se renseigner sur la mise en place du docker-compose avec les images mariadb et dolibarr
-* Commencer la mise en place du docker-compose avec des test
-* La documentation et les solutions sur les forums pour le Dockerfile mysql n'ont pas fonctionnés
-* On aurrait dû commencer par utiliser docker-compose, cependant avoir commencé par de simples Dockerfile nous a permis de nous rendre compte des nombreux avantages de docker-compose comparé à un Dockerfile que ce soit au niveau de la mise en place et de l'efficacité.
+3. **Vérifier l'état** : Visiter l'adresse `http://0.0.0.0:8082` dans un navigateur pour s'assurer de la bonne exécution du fichier.
 
-## Séance n° 6
+---
 
-* 12/11/2024 de 14h30 à 17h30
-* recherche documentation docker-compose, création docker compose avec mappage des ports, création utilisateurs mariadb et dolibarr ainsi que la base de donnée, création des volumes dolibarr et mariadb, création de l'entreprise qui "heberge" dolibarr, ajout du .gitignore pour les fichiers créés par install.sh, ajout install.sh qui lance le docker-compose et créer les dossiers nécéssaires, ajout remove.sh qui arrête et supprime les dockers ainsi que supprime les fichiers créés par install.sh
-* Se documenter pour le script d'import csv et créer ce script
-*  après les difficultés passées sur les Dockerfile nous avons décidé de passer sur docker-compose ce qui a été concluant. Nous avons quand même décidé de mettre les Dockerfile dans un dossier old_versions dans un but pédagogique
+# Explications du `docker-compose.yaml`
 
-## Séance n° 7
+## MariaDB
 
-* 03/12/2024 de 10h à 11h30 & de 14h30 à 16h
-* Début du compte rendu, test d'implementation de cron pour automatiser la sauvegarde pour backups
-* Continuer compte rendu et approfondir la recherche pour cron
-* Difficultés pour exporter et importer le CSV
+```bash
+ mariadb:
+        image: mariadb:latest
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: dolidb
+            MYSQL_USER: dolidbuser
+            MYSQL_PASSWORD: dolidbpass
 
+        volumes:
+            - ./dolibarr_mariadb:/var/lib/mysql
+            - ./csv:/csv
+```
 
-## Séance n° 8
+L'image utilisé ici est la dernière version stable de MariaDB.
+- ```MYSQL_ROOT_Password``` renvoie au mot de passe admin.
+- ```MYSQL_DATABASE``` renvoie au nom de la base de données.
+- ```MYSQL_USER``` renvoie au nom de l'utilisateur.
+- ```MYSQL_PASSWORD``` renvoie au mot de passe de l'utilisateur.
 
-* 04/12/2024 de 10h à 16h
-* Travail effectué
-* A faire à la prochaine séance
-* Difficultés rencontrées
-* Remarques sur la séances (membre absent, pbe technique, ...)
+Ces données configurent l'accès a la base de donnée
+
+Les volumes liés permettent de recuperer sur la machine hote les différents fichiers créer sur le docker.
+
+Ces paramètres englobes la création du docker MariaDB.
+
+## Dolibarr
+
+```bash
+ web:
+        image: dolibarr/dolibarr:latest
+        environment:
+            WWW_USER_ID: 1000
+            WWW_GROUP_ID: 1000
+            DOLI_DB_HOST: mariadb
+            DOLI_DB_NAME: dolidb
+            DOLI_DB_USER: dolidbuser
+            DOLI_DB_PASSWORD: dolidbpass
+            DOLI_URL_ROOT: "http://0.0.0.0"
+            DOLI_ADMIN_LOGIN: "admin"
+            DOLI_ADMIN_PASSWORD: "admin"
+            DOLI_CRON: 0
+            DOLI_INIT_DEMO: 0
+            DOLI_COMPANY_NAME: MyBigCompany
+            DOLI_COMPANY_COUNTRYCODE: "FR"
+            DOLI_ENABLE_MODULES: Societe,Import,Export
+
+        ports:
+            - 8082:80
+        links:
+            - mariadb
+        volumes:
+            - ./dolibarr_documents:/var/www/documents
+            - ./dolibarr_custom:/var/www/html/custom
+```
+
+Comme pour MariaDB nous utilisons la dernière version stable de Dolibarr.
+- ```WWW_USER_ID``` configure l'utilisateur web.
+- ```WWW_GROUP_ID``` configure, lui, le groupe web.
+- ```DOLI_DB_HOST``` renseigne le nom de la BDD a laquelle il se connecte
+- ```DOLI_DB_NAME``` renseigne le nom de la base de donnée que Dolibarr utilisera.
+- ```DOLI_DB_USER``` est utilisée pour spécifier le nom d'utilisateur qui sera utilisé par Dolibarr et vas de pair avec DOLI_DB_PASSWORD qui est le mot de passe de cet utilisateur.
+- ```DOLI_URL_ROOT``` est utilisé pour spécifier l'url utiliser pour joindre Dolibarr via le web.
+- ```DOLI_ADMIN_LOGIN``` et ```DOLI_ADMIN_PASSWORD``` sont utilisés pour configurer le compte admin
+
+Les commandes suivantes sont utilisées pour configurer Dolibarr:
+- ```DOLI_COMPANY_NAME``` est utilisé pour configurer le nom de la société hébérgant Dolibarr.
+- ```DOLI_COMPANY_COUNTRYCODE``` est utilisé pour configurer le code du pays de la société
+- ```DOLI_ENABLE_MODULES``` est utilisé pour configurer les modules qui sont activés par défaut au démarrage de Dolibarr. Ici les modules Societe pour la liste entreprises, Import et Export pour importer et exporter du CSV de manière guidée.
+
+Le ports mappe le port 80 du container au port 8082 de l'hote.
+
+```links``` permet de lier le container Dolibarr a la base de donnée MariaDB.
+
+Enfin , volumes permet de recuperer les fichiers créer sur le container Dolibarr et de les stocker sur l'hote a l'aide de Bind Mounts.
+
+# Explications du `save.sh`
+```cp -r ./dolibarr_mariadb/ ./backup/dolidb_$(date +"%d-%m-%Y_%H:%M:%S")/```
+
+Cette commande permet de copier (cp) de manière recursive (-r) le dossier et son contenu (./dolibarr_mariadb/) dans le dossier (./backup/) avec le nom "dolidb_" suivi de la date et l'heure a laquelle le dossier a été copier. Le nom du dossier pourait donc etre dolidb_05-12-2024_14:30:26 dans l'ordre: jour-mois-annee_heure:minute:seconde.
+
+# Explications du `remove.sh`
+```#!/bin/bash
+docker kill sae-dolibarr_web_1
+docker kill sae-dolibarr_mariadb_1
+docker rm sae-dolibarr_web_1
+docker rm sae-dolibarr_mariadb_1
+
+rm -rf ./dolibarr_custom/ ./dolibarr_documents/ ./dolibarr_mariadb/ ./backup ./csv
+```
+Docker Kill permet de tuer un conteneur nommé, en l'occurence sae-dolibarr_web_1 et sae-dolibarr_mariadb_1. Cela revient a l'éteindre
+
+Docker rm permet de supprimer un conteneur nommé. Ici la commande supprimera toute trace des conteneurs.
+
+Enfin rm -rf permet de supprimer de manière récursive (-r) et forcé (-f) les fichiers et dossiers spécifiés.
+
+Ce fihier permet de nettoyer totalement la machine hote des differents conteneurs et leurs dossiers et fichiers associés.
+
+# Explications du `remove.sh`
+Connecte sur docker mariadb en root sur la base dolidb et execute une commande d'import de donnée via un fichier. 
+Il importe ensuite le csv depuis le volume et le rentre dans la table qui corespond aux Sociétés , la dernière ligne indique quand à elle quelle colonne du csv correspond à quelle colonne de la table
