@@ -56,15 +56,15 @@
 
 ## Séance n° 7
 
-* date - heure
-* Travail effectué
-* A faire à la prochaine séance
-* Difficultés rencontrées
-* Remarques sur la séances (membre absent, pbe technique, ...)
+* 03/12/2024 de 10h à 11h30 & de 14h30 à 16h
+* Début du compte rendu, test d'implementation de cron pour automatiser la sauvegarde pour backups
+* Continuer compte rendu et approfondir la recherche pour cron
+* Difficultés pour exporter et importer le CSV
+
 
 ## Séance n° 8
 
-* date - heure
+* 04/12/2024 de 10h à 16h
 * Travail effectué
 * A faire à la prochaine séance
 * Difficultés rencontrées
