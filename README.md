@@ -123,6 +123,8 @@ Enfin , volumes permet de recuperer les fichiers créer sur le container Dolibar
 
 Cette commande permet de copier (cp) de manière recursive (-r) le dossier et son contenu (./dolibarr_mariadb/) dans le dossier (./backup/) avec le nom "dolidb_" suivi de la date et l'heure a laquelle le dossier a été copier. Le nom du dossier pourait donc etre dolidb_05-12-2024_14:30:26 dans l'ordre: jour-mois-annee_heure:minute:seconde.
 
+Pour remonter une sauvegarde il suffit de supprimer le contenu de dolibarr_mariadb après avoir mit le docker en pause. Puis de copier dans le dossier backup le contenu de la sauvegarde souhaitée à nouveau vers dolibarr_mariadb.
+
 # Explications du `remove.sh`
 ```#!/bin/bash
 docker kill sae-dolibarr_web_1
@@ -148,5 +150,5 @@ Le fichier CSV à importer doit d'abord être copier en sudo dans le dossier csv
    sudo cp ./<fichier.csv> ./csv/import.csv
    ```
 Quand à son format le fichier csv doit être au même format que le fichier csv d'exemple
-Permet de se connecter sur le docker mariadb en root sur la base dolidb et execute une commande d'import de donnée via un fichier. 
+Le script permet de se connecter sur le docker mariadb en root sur la base dolidb et execute une commande d'import de donnée via un fichier. 
 Il importe ensuite le csv depuis le volume et le rentre dans la table qui corespond aux Sociétés , la dernière ligne indique quand à elle quelle colonne du csv correspond à quelle colonne de la table.
