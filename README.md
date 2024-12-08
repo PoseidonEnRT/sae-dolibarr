@@ -140,6 +140,13 @@ Enfin rm -rf permet de supprimer de manière récursive (-r) et forcé (-f) les 
 
 Ce fihier permet de nettoyer totalement la machine hote des differents conteneurs et leurs dossiers et fichiers associés.
 
-# Explications du `remove.sh`
-Connecte sur docker mariadb en root sur la base dolidb et execute une commande d'import de donnée via un fichier. 
-Il importe ensuite le csv depuis le volume et le rentre dans la table qui corespond aux Sociétés , la dernière ligne indique quand à elle quelle colonne du csv correspond à quelle colonne de la table
+# Explications du `import_csv.sh`
+
+Le fichier CSV à importer doit d'abord être copier en sudo dans le dossier csv, il doit aussi être nommé import.csv : 
+
+   ```bash
+   sudo cp ./<fichier.csv> ./csv/import.csv
+   ```
+Quand à son format le fichier csv doit être au même format que le fichier csv d'exemple
+Permet de se connecter sur le docker mariadb en root sur la base dolidb et execute une commande d'import de donnée via un fichier. 
+Il importe ensuite le csv depuis le volume et le rentre dans la table qui corespond aux Sociétés , la dernière ligne indique quand à elle quelle colonne du csv correspond à quelle colonne de la table.
