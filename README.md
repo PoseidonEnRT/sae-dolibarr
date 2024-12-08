@@ -5,6 +5,12 @@
 
 Dolibarr est une solution ERP et CRM open-source, qui permet de gérer des opérations commerciales et administratives. Docker, nous permet de simplifier son déploiement.
 
+## Note
+
+Attention les script doivent se lancer en sudo avec la commande : 
+   ```bash
+   sudo bash <nom du script>
+   ```
 
 ## Prérequis
 
@@ -25,7 +31,7 @@ Dolibarr est une solution ERP et CRM open-source, qui permet de gérer des opér
 2. **Lancer les conteneurs** : Exécutez la commande suivante :
 
    ```bash
-   .\install.sh
+   sudo bash install.sh
    ```
 
 3. **Vérifier l'état** : Visiter l'adresse `http://0.0.0.0:8082` dans un navigateur pour s'assurer de la bonne exécution du fichier.
@@ -47,7 +53,7 @@ Dolibarr est une solution ERP et CRM open-source, qui permet de gérer des opér
 
         volumes:
             - ./dolibarr_mariadb:/var/lib/mysql
-            - ./csv:/csv
+            - ./csv:/home/csv
 ```
 
 L'image utilisé ici est la dernière version stable de MariaDB.
@@ -108,7 +114,7 @@ Les commandes suivantes sont utilisées pour configurer Dolibarr:
 
 Le ports mappe le port 80 du container au port 8082 de l'hote.
 
-```links``` permet de lier le container Dolibarr a la base de donnée MariaDB.
+```links``` permet de signaler à Docker de lancer le docker mariadb avant celui de dolibarr.
 
 Enfin , volumes permet de recuperer les fichiers créer sur le container Dolibarr et de les stocker sur l'hote a l'aide de Bind Mounts.
 
